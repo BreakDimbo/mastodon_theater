@@ -1,3 +1,10 @@
 bin/*
 pkg/*
 config/production.toml
+
+*.out
+*.log
+
+*.swap
+*.bk
+.DS_Store
