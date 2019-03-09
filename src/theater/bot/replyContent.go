@@ -15,8 +15,8 @@ var replies map[string][]string
 
 func init() {
 	replies = make(map[string][]string)
-	replies[cons.Kurisu] = initKurisuScrip()
-	replies[cons.Itaru] = initItaruScript()
+	replies[cons.Love] = initKurisuScrip()
+	replies[cons.Hentai] = initItaruScript()
 	replies[cons.EatSome] = initEatScript()
 }
 

@@ -1,45 +1,44 @@
 package main
 
 import (
-	"bot/bredis"
-	"bot/config"
-	cons "bot/const"
-	"bot/log"
-	"bot/theater/bot"
 	"bufio"
 	"fmt"
 	"os"
 	"strconv"
 	"strings"
+	"theater/bot"
+	"theater/bredis"
+	"theater/config"
+	cons "theater/const"
+	"theater/log"
 	"time"
 
 	"github.com/go-redis/redis"
 )
 
 const (
-	ActInterval = 60 * time.Minute
-	NightStart  = 12
-	NightEnd    = 21
-	Timeout     = 365 * 24 * 2 * time.Hour
+	NightStart = 12
+	NightEnd   = 9
+	Timeout    = 365 * 24 * 2 * time.Hour
 )
 
 func sendLine(actors map[string]*bot.Actor) {
-	filename := config.ScriptFilePath()
-	f, err := os.Open(filename)
-	if err != nil {
-		panic(err)
-	}
-
 	defer func() {
 		for _, actor := range actors {
 			close(actor.LineCh)
 		}
 	}()
-
 	defer wg.Done()
 
 	var id int
 	var prevEp string
+
+	filename := config.ScriptFilePath()
+	f, err := os.Open(filename)
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
 
 	input := bufio.NewScanner(f)
 	for input.Scan() {
@@ -83,7 +82,7 @@ func sendLine(actors map[string]*bot.Actor) {
 /*
 line example:
 
-ep/id/name/line
+ep/name/line
 */
 func parseText(content string) (string, string, string, error) {
 	s := strings.Split(content, "/")
@@ -95,6 +94,7 @@ func parseText(content string) (string, string, string, error) {
 	return ep, name, line, nil
 }
 
+// it is based on the line number(id)
 func checkActed(ep string, id int) (bool, error) {
 	key := fmt.Sprintf("%s:%s", cons.Stein, ep)
 	value, err := bredis.Client.Get(key).Result()
@@ -106,7 +106,7 @@ func checkActed(ep string, id int) (bool, error) {
 		}
 
 		// TODO: improve this place
-		time.Sleep(ActInterval)
+		time.Sleep(config.ActInterVal())
 
 		err := bredis.Client.Set(key, id, Timeout).Err()
 		if err != nil {

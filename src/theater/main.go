@@ -13,11 +13,12 @@ func main() {
 	actors := make(map[string]*bot.Actor)
 	actorsName := config.ActorsOnPlay()
 
-	// you can DIY your actors here by adding different handlers
+	// init actors by name
 	for _, name := range actorsName {
 		var actor *bot.Actor
 		switch name {
 		case cons.Kurisu:
+			// you can DIY your actors here by adding different handlers
 			actor = bot.New(name, bot.LoveHandler)
 		case cons.Okabe:
 			actor = bot.New(name, bot.BlockHandler, bot.UnblockHandler)
@@ -30,6 +31,8 @@ func main() {
 		actors[name] = actor
 		wg.Add(1)
 		go actor.Act(&wg)
+
+		// if your actor add some handler which needs to receiving notification from others
 		if name == cons.Okabe || name == cons.Kurisu || name == cons.Itaru {
 			go actor.ListenAudiences(actors)
 		}

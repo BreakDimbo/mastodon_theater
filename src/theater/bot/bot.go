@@ -34,6 +34,8 @@ func New(name string, handlers ...NotificationHandler) *Actor {
 		panic(err)
 	}
 
+	log.SLogger.Debugf("init the actor %s.", name)
+
 	return &Actor{
 		Name:        name,
 		LineCh:      make(chan string),

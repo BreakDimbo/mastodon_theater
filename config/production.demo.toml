@@ -1,106 +1,40 @@
 title = "production configration"
 
-script_file = "xxx/steinGate1.1.txt"
+log_path       = "mastodon_bot.log"
+script_file    = "config/steinGate1.1.txt"
 actors_on_play = ["okabe","mayuri","itaru", "kurisu"]
-theater_name = "#来自草莓县石头门bot剧组"
+theater_name   = "#来自草莓县石头门bot剧组"
+act_interval   = 60
 
 # for theater actors
 [actor_a]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
+client_id       = "a38c4cc723a0ac180589e5db309e8216ed5d850c36d7d60bc43f0d9f10fc19f2"
+client_secret   = "48d8c53fcd26329fa488465f953b21fb3a5c6277ece7783ab93314d927ab0101"
 server          = "https://cmx.im"
 client_email    = "xxx@xxx.com"
 client_password = "xxx"
+name            = "okabe"
 
 [actor_b]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
+client_id       = "a38c4cc723a0ac180589e5db309e8216ed5d850c36d7d60bc43f0d9f10fc19f2"
+client_secret   = "48d8c53fcd26329fa488465f953b21fb3a5c6277ece7783ab93314d927ab0101"
 server          = "https://cmx.im"
 client_email    = "xxx@xxx.com"
 client_password = "xxx"
+name            = "mayuri"
 
 [actor_c]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
+client_id       = "a38c4cc723a0ac180589e5db309e8216ed5d850c36d7d60bc43f0d9f10fc19f2"
+client_secret   = "48d8c53fcd26329fa488465f953b21fb3a5c6277ece7783ab93314d927ab0101"
 server          = "https://cmx.im"
 client_email    = "xxx@xxx.com"
 client_password = "xxx"
+name            = "itaru"
 
 [actor_d]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
+client_id       = "a38c4cc723a0ac180589e5db309e8216ed5d850c36d7d60bc43f0d9f10fc19f2"
+client_secret   = "48d8c53fcd26329fa488465f953b21fb3a5c6277ece7783ab93314d927ab0101"
 server          = "https://cmx.im"
 client_email    = "xxx@xxx.com"
 client_password = "xxx"
-
-[actor_e]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_f]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_g]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_h]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_l]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_m]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_n]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_i]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_j]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-[actor_k]
-client_id       = "xxxxxxx"
-client_secret   = "xxxxxxx"
-server          = "https://cmx.im"
-client_email    = "xxx@xxx.com"
-client_password = "xxx"
-
-
+name            = "kurisu"

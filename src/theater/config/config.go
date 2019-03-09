@@ -6,43 +6,38 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	cons "theater/const"
+	"time"
 
 	"github.com/BurntSushi/toml"
 )
 
-var config TomlConfig
+var cfg TomlConfig
+var actorInfoMap map[string]*ActorInfo
 
 type TomlConfig struct {
 	Title string
 	ENV   string
 
-	ScriptFile   string   `toml:"script_file"`
-	ActorsOnPlay []string `toml:"actors_on_play"`
-	TheaterName  string   `toml:"theater_name"`
+	LogPath      string        `toml:"log_path"`
+	ScriptFile   string        `toml:"script_file"`
+	ActorsOnPlay []string      `toml:"actors_on_play"`
+	TheaterName  string        `toml:"theater_name"`
+	ActInterVal  time.Duration `toml:"act_interval"`
 
-	ActorA MastodonClientInfo `toml:"actor_a"`
-	ActorB MastodonClientInfo `toml:"actor_b"`
-	ActorC MastodonClientInfo `toml:"actor_c"`
-	ActorD MastodonClientInfo `toml:"actor_d"`
-	ActorE MastodonClientInfo `toml:"actor_e"`
-	ActorF MastodonClientInfo `toml:"actor_f"`
-	ActorG MastodonClientInfo `toml:"actor_g"`
-	ActorH MastodonClientInfo `toml:"actor_h"`
-	ActorI MastodonClientInfo `toml:"actor_i"`
-	ActorJ MastodonClientInfo `toml:"actor_j"`
-	ActorK MastodonClientInfo `toml:"actor_k"`
-	ActorL MastodonClientInfo `toml:"actor_l"`
-	ActorM MastodonClientInfo `toml:"actor_m"`
-	ActorN MastodonClientInfo `toml:"actor_n"`
+	ActorA ActorInfo `toml:"actor_a"`
+	ActorB ActorInfo `toml:"actor_b"`
+	ActorC ActorInfo `toml:"actor_c"`
+	ActorD ActorInfo `toml:"actor_d"`
+	// add more actors if you like
 }
 
-type MastodonClientInfo struct {
+type ActorInfo struct {
 	ID       string `toml:"client_id"`
 	Secret   string `toml:"client_secret"`
 	Sever    string `toml:"server"`
 	Email    string `toml:"client_email"`
 	Password string `toml:"client_password"`
+	Name     string `toml:"name"`
 }
 
 func init() {
@@ -61,59 +56,46 @@ func init() {
 		return
 	}
 
-	if err := toml.Unmarshal(dat, &config); err != nil {
+	if err := toml.Unmarshal(dat, &cfg); err != nil {
 		log.Fatal(err)
 	}
-	config.ENV = *runingEnv
+	cfg.ENV = *runingEnv
+
+	actorInfoMap = map[string]*ActorInfo{
+		cfg.ActorA.Name: &cfg.ActorA,
+		cfg.ActorB.Name: &cfg.ActorB,
+		cfg.ActorC.Name: &cfg.ActorC,
+		cfg.ActorD.Name: &cfg.ActorD,
+	}
 }
 
 func GetRuntimeEnv() string {
-	return config.ENV
+	return cfg.ENV
+}
+
+func LogPath() string {
+	return cfg.LogPath
 }
 
 func ActorsOnPlay() []string {
-	return config.ActorsOnPlay
+	return cfg.ActorsOnPlay
 }
 
 func TheaterName() string {
-	return config.TheaterName
+	return cfg.TheaterName
 }
 
-func ActorBotClientInfo(name string) (MastodonClientInfo, error) {
-	switch name {
-	case cons.Okabe:
-		return config.ActorA, nil
-	case cons.Mayuri:
-		return config.ActorB, nil
-	case cons.Itaru:
-		return config.ActorC, nil
-	case cons.Kurisu:
-		return config.ActorD, nil
-	case cons.Moeka:
-		return config.ActorE, nil
-	case cons.Ruka:
-		return config.ActorF, nil
-	case cons.NyanNyan:
-		return config.ActorG, nil
-	case cons.Suzuha:
-		return config.ActorH, nil
-	case cons.Maho:
-		return config.ActorI, nil
-	case cons.Kagari:
-		return config.ActorJ, nil
-	case cons.Yuki:
-		return config.ActorK, nil
-	case cons.Tennouji:
-		return config.ActorL, nil
-	case cons.Nae:
-		return config.ActorM, nil
-	case cons.Nakabachi:
-		return config.ActorN, nil
-	default:
-		return MastodonClientInfo{}, fmt.Errorf("no such actor %s", name)
+func ActInterVal() time.Duration {
+	return cfg.ActInterVal * time.Minute
+}
+
+func ActorBotClientInfo(name string) (ActorInfo, error) {
+	if acInfo, ok := actorInfoMap[name]; ok {
+		return *acInfo, nil
 	}
+	return ActorInfo{}, fmt.Errorf("no such actor %s", name)
 }
 
 func ScriptFilePath() string {
-	return config.ScriptFile
+	return cfg.ScriptFile
 }

@@ -1,0 +1,17 @@
+{"level":"debug","time":1552136249.145611,"caller":"bot/bot.go:37","message":"init the actor %s.okabe"}
+{"level":"debug","time":1552136251.716625,"caller":"bot/bot.go:37","message":"init the actor %s.mayuri"}
+{"level":"debug","time":1552136252.3384068,"caller":"bot/bot.go:37","message":"init the actor %s.itaru"}
+{"level":"debug","time":1552136252.977441,"caller":"bot/bot.go:37","message":"init the actor %s.kurisu"}
+{"level":"debug","time":1552136386.396397,"caller":"bot/bot.go:37","message":"init the actor %s.okabe"}
+{"level":"debug","time":1552136386.9856389,"caller":"bot/bot.go:37","message":"init the actor %s.mayuri"}
+{"level":"debug","time":1552136387.605561,"caller":"bot/bot.go:37","message":"init the actor %s.itaru"}
+{"level":"debug","time":1552136388.933373,"caller":"bot/bot.go:37","message":"init the actor %s.kurisu"}
+{"level":"info","time":1552136448.9359539,"caller":"theater/reader.go:75","message":"acts ep ep1 id 4"}
+{"level":"debug","ts":1552137030.487689,"caller":"bot/bot.go:37","message":"init the actor okabe."}
+{"level":"debug","ts":1552137031.097339,"caller":"bot/bot.go:37","message":"init the actor mayuri."}
+{"level":"debug","ts":1552137031.6784241,"caller":"bot/bot.go:37","message":"init the actor itaru."}
+{"level":"debug","ts":1552137032.552715,"caller":"bot/bot.go:37","message":"init the actor kurisu."}
+{"level":"debug","time":"2019-03-09T21:17:54.681+0800","caller":"bot/bot.go:37","message":"init the actor okabe."}
+{"level":"debug","time":"2019-03-09T21:17:55.293+0800","caller":"bot/bot.go:37","message":"init the actor mayuri."}
+{"level":"debug","time":"2019-03-09T21:17:55.908+0800","caller":"bot/bot.go:37","message":"init the actor itaru."}
+{"level":"debug","time":"2019-03-09T21:17:56.495+0800","caller":"bot/bot.go:37","message":"init the actor kurisu."}

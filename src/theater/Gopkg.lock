@@ -34,12 +34,28 @@
   version = "v6.15.2"
 
 [[projects]]
+  digest = "1:7b5c6e2eeaa9ae5907c391a91c132abfd5c9e8a784a341b5625e750c67e6825d"
+  name = "github.com/gorilla/websocket"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "66b9c49e59c6c48f0ffce28c2d8b8a5678502c6d"
+  version = "v1.4.0"
+
+[[projects]]
   digest = "1:6ff1026b8d873d074ddec82ad60bb0eb537dc013f456ef26b63d30beba2f99e7"
   name = "github.com/microcosm-cc/bluemonday"
   packages = ["."]
   pruneopts = "UT"
   revision = "506f3da9b7c86d737e91f16b7431df8635871552"
   version = "v1.0.2"
+
+[[projects]]
+  digest = "1:2d4fb9b356677993030586c4f45809943769647e3f863327ebdabe80f3dc768c"
+  name = "github.com/tomnomnom/linkheader"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "6953a30d444317754766fccdd3f7f000edc874f6"
+  version = "0.1.0"
 
 [[projects]]
   digest = "1:777e729b475d3895c7229552aa10076f0d177daf37c0a72258006d046d329960"
@@ -90,7 +106,9 @@
     "github.com/BurntSushi/toml",
     "github.com/cenkalti/backoff",
     "github.com/go-redis/redis",
+    "github.com/gorilla/websocket",
     "github.com/microcosm-cc/bluemonday",
+    "github.com/tomnomnom/linkheader",
     "go.uber.org/zap",
     "go.uber.org/zap/zapcore",
   ]

@@ -29,11 +29,12 @@ func init() {
 	ecfg.MessageKey = "message"
 	ecfg.LevelKey = "level"
 	ecfg.TimeKey = "time"
+	ecfg.EncodeTime = zapcore.ISO8601TimeEncoder
 	ecfg.CallerKey = "caller"
 
 	cfg.EncoderConfig = ecfg
-	cfg.OutputPaths = []string{"stdout", "/var/log/mastodon_bot"}
-	cfg.ErrorOutputPaths = []string{"stderr", "/var/log/mastodon_bot"}
+	cfg.OutputPaths = []string{"stdout", config.LogPath()}
+	cfg.ErrorOutputPaths = []string{"stderr", config.LogPath()}
 	cfg.Encoding = "json"
 	cfg.Level = zap.NewAtomicLevelAt(zap.DebugLevel)
 

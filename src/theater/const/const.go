@@ -18,5 +18,7 @@ const (
 	Stein     = "stein"
 )
 
+const Love = "Love"
+const Hentai = "Hentai"
 const FoodKey = "FoodKey"
 const EatSome = "EatSomething"

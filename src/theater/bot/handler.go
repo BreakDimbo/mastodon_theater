@@ -19,42 +19,48 @@ func BlockHandler(self *Actor, ntf *gomastodon.Notification, data interface{}) {
 	content := filter(ntf.Status.Content)
 	log.SLogger.Infof("get notification: %s", content)
 
-	if strings.Contains(content, "EL_PSY_CONGROO") {
-		actors, ok := data.(map[string]*Actor)
-		if !ok {
-			log.SLogger.Errorf("convert data %v to map error", data)
-			return
-		}
-
-		for _, actor := range actors {
-			if actor.Name == self.Name {
-				continue
-			}
-			actor.BlockCh <- string(ntf.Account.ID)
-			log.SLogger.Infof("start to block %s", ntf.Account.Username)
-		}
+	if !strings.Contains(content, "EL_PSY_CONGROO") {
+		return
 	}
+
+	actors, ok := data.(map[string]*Actor)
+	if !ok {
+		log.SLogger.Errorf("convert data %v to map error", data)
+		return
+	}
+
+	for _, actor := range actors {
+		if actor.Name == self.Name {
+			continue
+		}
+		actor.BlockCh <- string(ntf.Account.ID)
+		log.SLogger.Infof("start to block %s", ntf.Account.Username)
+	}
+
 }
 
 func UnblockHandler(self *Actor, ntf *gomastodon.Notification, data interface{}) {
 	content := filter(ntf.Status.Content)
 	log.SLogger.Infof("get notification: %s", content)
 
-	if strings.Contains(content, "Love_You") {
-		actors, ok := data.(map[string]*Actor)
-		if !ok {
-			log.SLogger.Errorf("convert data %v to map error", data)
-			return
-		}
-
-		for _, actor := range actors {
-			if actor.Name == self.Name {
-				continue
-			}
-			actor.UnBlockCh <- string(ntf.Account.ID)
-			log.SLogger.Infof("start to unblock %s", ntf.Account.Username)
-		}
+	if !strings.Contains(content, "Love_You") {
+		return
 	}
+
+	actors, ok := data.(map[string]*Actor)
+	if !ok {
+		log.SLogger.Errorf("convert data %v to map error", data)
+		return
+	}
+
+	for _, actor := range actors {
+		if actor.Name == self.Name {
+			continue
+		}
+		actor.UnBlockCh <- string(ntf.Account.ID)
+		log.SLogger.Infof("start to unblock %s", ntf.Account.Username)
+	}
+
 }
 
 func LoveHandler(self *Actor, ntf *gomastodon.Notification, data interface{}) {
@@ -79,7 +85,7 @@ func LoveHandler(self *Actor, ntf *gomastodon.Notification, data interface{}) {
 		if err != nil {
 			log.SLogger.Errorf("set key to redis error: %v", err)
 		}
-		reply := GetRandomReply(cons.Kurisu)
+		reply := GetRandomReply(cons.Love)
 		toot := fmt.Sprintf("@%s %s", ntf.Account.Username, reply)
 		_, err = self.client.Post(toot)
 		if err != nil {
@@ -120,7 +126,7 @@ func FoodHandler(self *Actor, ntf *gomastodon.Notification, data interface{}) {
 		}
 
 	} else if strings.Contains(content, "桶子") && ntf.Status.Visibility == "public" {
-		reply := GetRandomReply(cons.Itaru)
+		reply := GetRandomReply(cons.Hentai)
 		toot := fmt.Sprintf("@%s %s", ntf.Account.Username, reply)
 		_, err := self.client.Post(toot)
 		if err != nil {

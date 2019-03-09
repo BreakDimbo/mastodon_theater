@@ -18,7 +18,7 @@ type Bot struct {
 }
 
 // New new bot client which should be called only when init
-func New(config *config.MastodonClientInfo) (*Bot, error) {
+func New(config *config.ActorInfo) (*Bot, error) {
 	c := gomastodon.NewClient(&gomastodon.Config{
 		Server:       config.Sever,
 		ClientID:     config.ID,
