@@ -1,0 +1,106 @@
+title = "production configration"
+
+script_file = "xxx/steinGate1.1.txt"
+actors_on_play = ["okabe","mayuri","itaru", "kurisu"]
+theater_name = "#来自草莓县石头门bot剧组"
+
+# for theater actors
+[actor_a]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_b]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_c]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_d]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_e]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_f]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_g]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_h]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_l]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_m]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_n]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_i]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_j]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+[actor_k]
+client_id       = "xxxxxxx"
+client_secret   = "xxxxxxx"
+server          = "https://cmx.im"
+client_email    = "xxx@xxx.com"
+client_password = "xxx"
+
+
