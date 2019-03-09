@@ -1,4 +1,11 @@
-## install
+This is a bot client for mastodon, it supports:
+
+* post toot according to the arrangemant in script Regularly (default 60m for every line)
+* reply LOVE_YOU
+* reply anything according to any key word (if you are able to program) 
+
+
+# Install
 * clone the repo
 ```
 git clone git@github.com:BreakDimbo/mastodon_theater.git
@@ -6,7 +13,7 @@ git clone git@github.com:BreakDimbo/mastodon_theater.git
 
 * [install golang](https://golang.org/doc/install)
 
-* install dependency
+* install dependency(not necessary)
 ```
 cd mastodon_theater
 make deps
@@ -29,7 +36,7 @@ $ make
 redis-5.0.3/src/redis-server
 ```
 
-## Set Up and Run
+# Set Up and Run
 
 * set the config file
 ```
